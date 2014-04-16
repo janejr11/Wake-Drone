@@ -1,4 +1,4 @@
-package de.yadrone.apps.tutorial;
+package edu.wakeforest.drone.gui;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -9,12 +9,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import de.yadrone.apps.tutorial.TutorialVideoListener;
 import de.yadrone.base.ARDrone;
 import de.yadrone.base.IARDrone;
 import de.yadrone.base.command.CommandManager;
 import de.yadrone.base.video.VideoImage;
-
-import keyboard.listener.KeyboardFrame;
+import edu.wakeforest.drone.keyboardframe.KeyboardFrame;
 
 
 public class TutorialGUI extends JFrame{
@@ -120,13 +120,4 @@ public class TutorialGUI extends JFrame{
 			label.setText("Moving backwards");
 		}
 	}
-	
-	public static void main(String args[]){
-		TutorialGUI gui = new TutorialGUI();
-		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		gui.setSize(200,200);
-		gui.setVisible(true);
-		gui.setTitle("Controller");
-	}
-	
 }
