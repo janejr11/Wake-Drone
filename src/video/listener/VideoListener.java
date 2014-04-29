@@ -1,4 +1,4 @@
-package edu.wakeforest.drone.video.listener;
+package video.listener;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -9,10 +9,12 @@ import javax.swing.SwingUtilities;
 
 import de.yadrone.base.IARDrone;
 import de.yadrone.base.video.ImageListener;
+import edu.wakeforest.drone.image.processing.DroneImageProcessor;
 
 public class VideoListener extends JFrame{
 
   public BufferedImage currentImage = null;
+  public DroneImageProcessor dip;
   
   public VideoListener(final IARDrone drone){
     super("Listening for Lines");
@@ -32,6 +34,8 @@ public class VideoListener extends JFrame{
             });
         }
     });
+    dip = new DroneImageProcessor();
+    drone.getVideoManager().addImageListener(dip);
     
  // close the 
     addWindowListener(new WindowAdapter() {

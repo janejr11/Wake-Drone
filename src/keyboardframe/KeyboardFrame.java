@@ -1,4 +1,4 @@
-package edu.wakeforest.drone.keyboardframe;
+package keyboardframe;
 
 import javax.swing.JFrame;
 

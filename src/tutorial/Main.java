@@ -1,7 +1,7 @@
-package edu.wakeforest.drone.tutorial;
+package tutorial;
 
+import gui.GUI;
 import de.yadrone.base.ARDrone;
-import edu.wakeforest.drone.gui.GUI;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package edu.wakeforest.drone.gui;
+package gui;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -9,12 +9,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import de.yadrone.apps.tutorial.TutorialVideoListener;
+import keyboardframe.KeyboardFrame;
+import video.listener.VideoListener;
+import approachTape.ApproachTape;
 import de.yadrone.base.ARDrone;
 import de.yadrone.base.IARDrone;
 import de.yadrone.base.command.CommandManager;
 import de.yadrone.base.video.VideoImage;
-import edu.wakeforest.drone.keyboardframe.KeyboardFrame;
 
 
 public class GUI extends JFrame{
@@ -29,12 +30,13 @@ public class GUI extends JFrame{
 	private JButton buttonCalibrate;
 	private IARDrone drone;
 	private BufferedImage img;
+	private VideoListener vidzzzzz;
 	
 	//constructor
 	public GUI(ARDrone dronea){
 		drone = dronea;
 		CommandManager cmd = drone.getCommandManager();
-		new TutorialVideoListener(drone);
+		vidzzzzz = new VideoListener(drone);
 		new VideoImage();
 		new KeyboardFrame(drone);
 		
@@ -147,13 +149,14 @@ public class GUI extends JFrame{
 	public class begine implements ActionListener{
 		public void actionPerformed(ActionEvent begin){
 			label.setText("Beginning search");
-			
+			ApproachTape.charge(drone, vidzzzzz);
 		}
 	}
 	
 	public class calibratee implements ActionListener{
 		public void actionPerformed(ActionEvent calibrate){
-			label.setText("Calibrating image");
+			label.setText("Calibrating search");
+			ApproachTape.calibrate(vidzzzzz);
 		}
 	}
 	public static void create(GUI gui){
